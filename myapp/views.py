@@ -11,3 +11,6 @@ def todos(request):
 
 def profile(request):
     return render(request, "profile.html")
+
+def shader_background_view(request):
+    return render(request, 'shader_background.html')
