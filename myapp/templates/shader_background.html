@@ -26,7 +26,9 @@
         var gl = canvas.getContext("webgl2", {
             alpha: false,
             desynchronized: true, // for reduced latency, not supported in all browsers
-            preserveDrawingBuffer: true // might affect performance
+            preserveDrawingBuffer: true, // might affect performance
+            antialias: false // Disable antialiasing
+
         });
 
 
