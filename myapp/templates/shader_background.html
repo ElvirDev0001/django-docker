@@ -42,8 +42,8 @@
                 var displayHeight = Math.floor(canvas.clientHeight * window.devicePixelRatio);
 
                 if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
-                    canvas.width  = displayWidth;
-                    canvas.height = displayHeight;
+                    canvas.width  = displayWidth / 1.5;
+                    canvas.height = displayHeight / 1.5;
                     gl.viewport(0, 0, canvas.width, canvas.height);
                 }
             }
