@@ -12,7 +12,7 @@
   }
 
   .text-stroke {
-    color: #C2f111; /* Replace #yourTextColor with the actual color of your text */
+    color: #9EFF7A; /* Replace #yourTextColor with the actual color of your text */
     text-shadow:
       -1px -1px 0 #000000,
        1px -1px 0 #000000,
@@ -23,7 +23,10 @@
 
   .jumbotron {
     background-color: #ffffff00;
-    color: #C2f111;
+    color: #9EFF7A;
+    margin-bottom: 1px; /* Reduce the bottom margin */
+    margin-top: 1px; /* Adjust the top margin if needed */
+    padding: 2.5rem 1.25rem; /* Smaller padding */
   }
 
   .card {
@@ -44,7 +47,7 @@
   }
 
   .btn-link:hover {
-    color: #FFCB9A;
+    color: #FFFF86;
   }
 
   .card-body {
@@ -71,6 +74,10 @@
       margin-right: 5px; /* Add some space between icon and text */
     }
 
+  .container.custom-margin-top {
+    margin-top: 0px; /* Adjust this value as needed */
+  }
+
 </style>
 {% endblock %}
 
@@ -81,7 +88,7 @@
     <p class="lead text-stroke">Tech Savvy | Multimedia Enthusiast | Network Expert</p>
   </div>
 
-  <div class="container mt-5">
+  <div class="container custom-margin-top">
     <div id="accordion" class="text-stroke">
       <div class="card">
         <div class="card-header" id="headingOne">
