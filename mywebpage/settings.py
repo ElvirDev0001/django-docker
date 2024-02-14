@@ -21,13 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p4fio6y2l6y%ad-nditdxq)uq3wtb-zxgv04)dp)&q=_otzdn@'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['elvir.up.railway.app', 'localhost', '127.0.0.1', 'elvirtest.up.railway.app']
-
+ALLOWED_HOSTS = ['elvir.up.railway.app', 'localhost', '127.0.0.1', 'www.elvir.info', 'elvir.info', 'elvirtest.up.railway.app']
 
 # Application definition
 
