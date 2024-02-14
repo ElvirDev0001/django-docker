@@ -2,127 +2,201 @@
 
 {% block title %}Elvir's Profile{% endblock %}
 
+{% block additional_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+  body {
+    background-color: #2C3531;
+    color: #ffffff;
+  }
+
+  .text-stroke {
+    color: #9EFF7A; /* Replace #yourTextColor with the actual color of your text */
+    text-shadow:
+      -1px -1px 0 #000000,
+       1px -1px 0 #000000,
+      -1px  1px 0 #000000,
+       1px  1px 0 #000000;
+  }
+
+
+  .jumbotron {
+    background-color: #ffffff00;
+    color: #9EFF7A;
+    margin-bottom: 1px; /* Reduce the bottom margin */
+    margin-top: 1px; /* Adjust the top margin if needed */
+    padding: 2.5rem 1.25rem; /* Smaller padding */
+  }
+
+  .card {
+    background-color: #ffffff00;
+    border-color: #4dfdf3;
+  }
+
+  .card-header {
+    background-color: #116466;
+    color: #D9B08C;
+    text-align: center;
+    padding: 0.5rem 1.25rem; /* Smaller padding */
+  }
+
+  .btn-link {
+    color: #4dfdf3;
+    text-decoration: none;
+  }
+
+  .btn-link:hover {
+    color: #FFFF86;
+  }
+
+  .card-body {
+      text-align: center; /* Center align text inside the card body */
+      display: flex; /* Use Flexbox */
+      flex-direction: column; /* Stack items vertically */
+      justify-content: center; /* Center items vertically */
+      align-items: center; /* Center items horizontally */
+      padding: 0.5rem 1rem; /* Smaller padding */
+    }
+
+    .card-body ul {
+      list-style-type: none; /* Remove default list styling */
+      padding: 0; /* Remove default padding */
+    }
+
+    .card-body ul li {
+      display: inline-block; /* Display list items inline */
+      margin: 0 10px; /* Add some horizontal spacing */
+    }
+
+    .card-body ul li i {
+      color: #2C3531; /* Icons inside the card body */
+      margin-right: 5px; /* Add some space between icon and text */
+    }
+
+  .container.custom-margin-top {
+    margin-top: 0px; /* Adjust this value as needed */
+  }
+
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="jumbotron text-center" style="background-color: #f8f9fa;">
-  <h1 class="display-4">Welcome to Elvir's Profile</h1>
-  <p class="lead">Tech Savvy | Multimedia Enthusiast | Network Expert</p>
-</div>
+<div class="main-content">
+  <div class="jumbotron text-center">
+    <h1 class="display-4 text-stroke">Welcome to Elvir's Profile</h1>
+    <p class="lead text-stroke">Tech Savvy | Multimedia Enthusiast | Network Expert</p>
+  </div>
 
-<div class="container mt-5">
-  <div id="accordion">
-    <div class="card">
-      <div class="card-header" id="headingOne">
-        <h5 class="mb-0">
-          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Development & Scripting
-          </button>
-        </h5>
-      </div>
-
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><i class="fab fa-html5 fa-lg" style="color: #e34f26;"></i> HTML/CSS/JS</li>
-            <li><i class="fab fa-python fa-lg" style="color: #3776ab;"></i> Python/Django/Dash/Flask</li>
-            <li><i class="fas fa-chart-line fa-lg" style="color: #ffc107;"></i> Plotly</li>
-            <li><i class="fab fa-linux fa-lg" style="color: #fcc624;"></i> Linux OS & Shell Scripting</li>
-            <li><i class="fab fa-git-alt fa-lg" style="color: #f05032;"></i> Git/GitHub</li>
-            <li><i class="fab fa-docker fa-lg" style="color: #2496ed;"></i> Docker</li>
-            <li><i class="fas fa-train fa-lg" style="color: #cc342d;"></i> Railway</li>
-          </ul>
+  <div class="container custom-margin-top">
+    <div id="accordion" class="text-stroke">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Development & Scripting
+            </button>
+          </h5>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li><i class="fab fa-html5 fa-lg" style="color: #e34f26;"></i> HTML/CSS/JS</li>
+              <li><i class="fab fa-python fa-lg" style="color: #3776ab;"></i> Python/Django/Dash/Flask</li>
+              <li><i class="fas fa-chart-line fa-lg" style="color: #ffc107;"></i> Plotly</li>
+              <li><i class="fab fa-linux fa-lg" style="color: #fcc624;"></i> Linux OS & Shell Scripting</li>
+              <li><i class="fab fa-git-alt fa-lg" style="color: #f05032;"></i> Git/GitHub</li>
+              <li><i class="fab fa-docker fa-lg" style="color: #2496ed;"></i> Docker</li>
+              <li><i class="fas fa-train fa-lg" style="color: #cc342d;"></i> Railway</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-header" id="headingTwo">
-        <h5 class="mb-0">
-          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Networking & Administration
-          </button>
-        </h5>
-      </div>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><i class="fas fa-network-wired fa-lg" style="color: #007bff;"></i> TCP/IP & Network Protocols</li>
-            <li><i class="fas fa-globe fa-lg" style="color: #28a745;"></i> DNS</li>
-            <li><i class="fas fa-database fa-lg" style="color: #f56954;"></i> MySQL</li>
-            <li><i class="fas fa-server fa-lg" style="color: #fd7e14;"></i> VMWare (Virtual Boxes)</li>
-            <li><i class="fas fa-terminal fa-lg" style="color: #6f42c1;"></i> SSH/Shell/Telnet</li>
-            <li><i class="fas fa-bug fa-lg" style="color: #dc3545;"></i> Ollydbg</li>
-            <li><i class="fas fa-project-diagram fa-lg" style="color: #17a2b8;"></i> Wireshark</li>
-          </ul>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Networking & Administration
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li><i class="fas fa-network-wired fa-lg" style="color: #007bff;"></i> TCP/IP & Network Protocols</li>
+              <li><i class="fas fa-globe fa-lg" style="color: #28a745;"></i> DNS</li>
+              <li><i class="fas fa-database fa-lg" style="color: #f56954;"></i> MySQL</li>
+              <li><i class="fas fa-server fa-lg" style="color: #fd7e14;"></i> VMWare (Virtual Boxes)</li>
+              <li><i class="fas fa-terminal fa-lg" style="color: #6f42c1;"></i> SSH/Shell/Telnet</li>
+              <li><i class="fas fa-bug fa-lg" style="color: #dc3545;"></i> Ollydbg</li>
+              <li><i class="fas fa-project-diagram fa-lg" style="color: #17a2b8;"></i> Wireshark</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-header" id="headingThree">
-        <h5 class="mb-0">
-          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Multimedia Editing & Production
-          </button>
-        </h5>
-      </div>
-      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><i class="fas fa-video fa-lg" style="color: #fd7e14;"></i> Sony Vegas Pro</li>
-            <li><i class="fas fa-microphone-alt fa-lg" style="color: #007bff;"></i> Audacity</li>
-          </ul>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Multimedia Editing & Production
+            </button>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li><i class="fas fa-video fa-lg" style="color: #fd7e14;"></i> Sony Vegas Pro</li>
+              <li><i class="fas fa-microphone-alt fa-lg" style="color: #007bff;"></i> Audacity</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-header" id="headingFour">
-        <h5 class="mb-0">
-          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-            Office & Productivity Tools
-          </button>
-        </h5>
-      </div>
-      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><i class="fas fa-file-word fa-lg" style="color: #28a745;"></i> MS Word</li>
-            <li><i class="fas fa-file-excel fa-lg" style="color: #ffc107;"></i> MS Excel</li>
-            <li><i class="fas fa-file-powerpoint fa-lg" style="color: #f56954;"></i> MS PowerPoint</li>
-          </ul>
+      <div class="card">
+        <div class="card-header" id="headingFour">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              Office & Productivity Tools
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li><i class="fas fa-file-word fa-lg" style="color: #28a745;"></i> MS Word</li>
+              <li><i class="fas fa-file-excel fa-lg" style="color: #ffc107;"></i> MS Excel</li>
+              <li><i class="fas fa-file-powerpoint fa-lg" style="color: #f56954;"></i> MS PowerPoint</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-header" id="headingFive">
-        <h5 class="mb-0">
-          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-            Electronics Skills
-          </button>
-        </h5>
-      </div>
-      <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><i class="fas fa-microchip fa-lg" style="color: #007bff;"></i> Electronic Circuit Design</li>
-            <li><i class="fas fa-tools fa-lg" style="color: #dc3545;"></i> Soldering</li>
-            <li><i class="fas fa-atom fa-lg" style="color: #28a745;"></i> Prototype Making</li>
-            <li><i class="fab fa-usb fa-lg" style="color: #6f42c1;"></i> Arduino Projects</li>
-            <li><i class="fas fa-network-wired fa-lg" style="color: #fd7e14;"></i> ESP Controllers</li>
-            <li><i class="fas fa-square-root-alt fa-lg" style="color: #ffc107;"></i> MATLAB</li>
-          </ul>
+      <div class="card">
+        <div class="card-header" id="headingFive">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              Electronics Skills
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li><i class="fas fa-microchip fa-lg" style="color: #007bff;"></i> Electronic Circuit Design</li>
+              <li><i class="fas fa-tools fa-lg" style="color: #dc3545;"></i> Soldering</li>
+              <li><i class="fas fa-atom fa-lg" style="color: #28a745;"></i> Prototype Making</li>
+              <li><i class="fab fa-usb fa-lg" style="color: #6f42c1;"></i> Arduino Projects</li>
+              <li><i class="fas fa-network-wired fa-lg" style="color: #fd7e14;"></i> ESP Controllers</li>
+              <li><i class="fas fa-square-root-alt fa-lg" style="color: #ffc107;"></i> MATLAB</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-{% endblock %}
-
-{% block additional_css %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 {% endblock %}
 
 {% block additional_js %}
@@ -130,3 +204,4 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {% endblock %}
+
