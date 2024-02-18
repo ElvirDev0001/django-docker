@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
     {% extends "base.html" %}
     {% block content %}
-    <meta charset="UTF-8">
-    <title>About Elvir Hodzic</title>
+    <title>About</title>
     <style>
         body {
             background-color: #2C3531;
@@ -13,9 +10,16 @@
         }
 
         .container {
-            max-width: 800px; /* Adjust the width as needed */
+            max-width: 1010px; /* Adjust the width as needed */
             margin: auto;
             padding: 20px;
+            color: #ffffff;
+            font-family: Arial, sans-serif; /* Adjust the font-family as needed */
+            text-shadow:
+                -1px -1px 0 #000000,
+                 1px -1px 0 #000000,
+                -1px  1px 0 #000000,
+                 1px  1px 0 #000000; /* Apply text shadow to all container text */
         }
 
         .about-card {
@@ -32,6 +36,7 @@
             font-size: 24px; /* Adjust the font-size as needed */
             margin: -20px -20px 20px -20px; /* Aligns with the card padding */
             padding: 10px;
+            border-radius: 10px; /* Adds rounding to the corners */
         }
 
         .about-content {
@@ -51,11 +56,9 @@
             color: #9EFF7A; /* To highlight certain keywords */
         }
     </style>
-</head>
-<body>
     <div class="container">
         <div class="about-card">
-            <div class="about-header">About Elvir Hodzic</div>
+            <div class="about-header">About</div>
             <div class="about-content">
                 <p>Hi, my name is Elvir Hodzic and I'm a Mechatronics Technician with 2 years of practical experience, with a good expertise in building autonomous systems. I've developed a deep understanding of the mechatronics field over the years inside and outside school projects. Lately, I've gained a lot of experience working with lithium-ion batteries, ensuring that they are used safely and efficiently in a variety of applications.</p>
 
@@ -63,10 +66,10 @@
 
                 <h3>Area of Expertise : Skills/Technologies</h3>
                 <ul class="skill-list">
-                    <li><span class="highlight">Microcontrollers and embedded systems</span>: Arduino, PLC, TIA Portal, IoT</li>
+                    <li><span class="highlight">Microcontrollers and embedded systems</span>: Arduino, ESP32, PLC, TIA Portal, IoT</li>
                     <li><span class="highlight">Programming</span>: C/C++, Python</li>
                     <li><span class="highlight">Motion control systems and sensors</span>: Stepper motors, encoders, force, proximity sensors.</li>
-                    <li><span class="highlight">Networking communication protocols</span>: Ethernet, TCP/IP, HTTP, and DNS.</li>
+                    <li><span class="highlight">Networking communication protocols</span>: Ethernet, TCP/IP, Network Protocols</li>
                     <li><span class="highlight">Software tools for simulation and modeling</span>: Matlab/Simulink, NI Multisim, FluidSIM</li>
                     <li><span class="highlight">Electrical and electronic systems</span>: Wiring, circuit design</li>
                     <li><span class="highlight">Mechanical systems</span>: Materials science, mechanical design, prototyping</li>
@@ -78,5 +81,3 @@
         </div>
     </div>
     {% endblock %}
-</body>
-</html>

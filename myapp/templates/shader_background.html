@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
     <style>
         body, html {
             margin: 0;
@@ -8,7 +5,7 @@
             width: 100%;
             height: 100%;
         }
-    
+
         canvas {
             display: block; /* Removes the margin at the bottom */
             position: fixed; /* Keeps the canvas in place even during scrolling */
@@ -30,9 +27,9 @@
                     alert("Your browser does not support WebGL2");
                     return;
                 }
-        
+
                 let lastWidth, lastHeight;
-        
+
                 function resizeCanvas() {
                     let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
                     let height = Math.max(
@@ -40,20 +37,20 @@
                         document.body.offsetHeight, document.documentElement.offsetHeight,
                         document.body.clientHeight, document.documentElement.clientHeight
                     );
-        
+
                     if (width !== lastWidth || height !== lastHeight) {
                         canvas.width = width * window.devicePixelRatio;
                         canvas.height = height * window.devicePixelRatio;
                         canvas.style.width = width + 'px';
                         canvas.style.height = height + 'px';
-        
+
                         gl.viewport(0, 0, canvas.width, canvas.height);
-        
+
                         lastWidth = width;
                         lastHeight = height;
                     }
                 }
-        
+
                 // Debounce function to limit how often a function is executed
                 function debounce(func, timeout = 300) {
                     let timer;
@@ -62,12 +59,12 @@
                         timer = setTimeout(() => { func.apply(this, args); }, timeout);
                     };
                 }
-        
+
                 // Debounced resize event listener
                 window.addEventListener('resize', debounce(resizeCanvas));
-        
+
                 resizeCanvas(); // Initial setup
-        
+
                 // Periodic check can still be useful for catching other changes
 
         var vsSource = `#version 300 es
@@ -193,6 +190,8 @@
         var iFrameLocation = gl.getUniformLocation(program, "iFrame");
         var iMouseLocation = gl.getUniformLocation(program, "iMouse");
         var iDateLocation = gl.getUniformLocation(program, "iDate");
+        
+        
 
         var lastFrameTime = 0;
         var frame = 0;
@@ -240,5 +239,3 @@
         }
         initializeWebGL(); // Call the function to initialize WebGL
     </script>
-</body>
-</html>
