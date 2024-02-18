@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+    {% block content %}
+    <meta charset="UTF-8">
+    <title>About Elvir Hodzic</title>
+    <style>
+        body {
+            background-color: #2C3531;
+            color: #ffffff;
+            font-family: Arial, sans-serif; /* Adjust the font-family as needed */
+        }
+
+        .container {
+            max-width: 800px; /* Adjust the width as needed */
+            margin: auto;
+            padding: 20px;
+        }
+
+        .about-card {
+            background-color: #ffffff00;
+            border: 2px solid #4dfdf3;
+            border-radius: 10px; /* Optional: for rounded corners */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .about-header {
+            background-color: #116466;
+            color: #D9B08C;
+            font-size: 24px; /* Adjust the font-size as needed */
+            margin: -20px -20px 20px -20px; /* Aligns with the card padding */
+            padding: 10px;
+        }
+
+        .about-content {
+            text-align: left; /* For better readability of longer texts */
+        }
+
+        .skill-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            margin: 10px 0; /* Adjust spacing between list items */
+        }
+
+        .highlight {
+            color: #9EFF7A; /* To highlight certain keywords */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="about-card">
+            <div class="about-header">About Elvir Hodzic</div>
+            <div class="about-content">
+                <p>Hi, my name is Elvir Hodzic and I'm a Mechatronics Technician with 2 years of practical experience, with a good expertise in building autonomous systems. I've developed a deep understanding of the mechatronics field over the years inside and outside school projects. Lately, I've gained a lot of experience working with lithium-ion batteries, ensuring that they are used safely and efficiently in a variety of applications.</p>
+
+                <p>I have worked extensively with Python and microcontroller programming C/C++ and have completed multiple smaller projects using these languages. While I would not consider myself an expert, I have developed a good familiarity with the languages and feel comfortable using them to develop software solutions. On the plus side, I have a basic understanding of Matlab/Simulink, which I have used to develop simulations and models to test and validate the performance of electrical circuits. But most importantly, I love to learn and stay in touch with the latest technologies.</p>
+
+                <h3>Area of Expertise : Skills/Technologies</h3>
+                <ul class="skill-list">
+                    <li><span class="highlight">Microcontrollers and embedded systems</span>: Arduino, PLC, TIA Portal, IoT</li>
+                    <li><span class="highlight">Programming</span>: C/C++, Python</li>
+                    <li><span class="highlight">Motion control systems and sensors</span>: Stepper motors, encoders, force, proximity sensors.</li>
+                    <li><span class="highlight">Networking communication protocols</span>: Ethernet, TCP/IP, HTTP, and DNS.</li>
+                    <li><span class="highlight">Software tools for simulation and modeling</span>: Matlab/Simulink, NI Multisim, FluidSIM</li>
+                    <li><span class="highlight">Electrical and electronic systems</span>: Wiring, circuit design</li>
+                    <li><span class="highlight">Mechanical systems</span>: Materials science, mechanical design, prototyping</li>
+                    <li><span class="highlight">Power electronics</span>: Simulation, design, performance evaluation, PID control using Matlab/Simulink models</li>
+                    <li><span class="highlight">Basic Data Science</span>: Data Analysis, Machine Learning (AI), Python (Tensorflow, Pandas, Numpy)</li>
+                    <li><span class="highlight">Come in handy</span>: HTML/CSS, Adobe Photoshop, Basic KUKA AG control.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

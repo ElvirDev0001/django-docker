@@ -14,3 +14,6 @@ def profile(request):
 
 def shader_background_view(request):
     return render(request, 'shader_background.html')
+
+def about(request):
+    return render(request, 'about.html')

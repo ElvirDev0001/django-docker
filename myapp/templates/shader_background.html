@@ -2,19 +2,21 @@
 <html>
 <head>
     <style>
-        body, html { margin: 0; padding: 0; overflow: hidden; }
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
+        body, html {
+            margin: 0;
+            padding: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            z-index: -1; /* Ensure it's behind other content */
-            border: none;
-            outline: none;
-            box-shadow: none;
-
+        }
+    
+        canvas {
+            display: block; /* Removes the margin at the bottom */
+            position: fixed; /* Keeps the canvas in place even during scrolling */
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1; /* Ensures it's rendered behind other content */
         }
     </style>
 </head>
@@ -22,34 +24,51 @@
     <canvas id="canvas"></canvas>
     <script>
         function initializeWebGL() {
-        var canvas = document.getElementById("canvas");
-        var gl = canvas.getContext("webgl2", {
-            alpha: false,
-            desynchronized: true, // for reduced latency, not supported in all browsers
-            preserveDrawingBuffer: true, // might affect performance
-            antialias: false // Disable antialiasing
-
-        });
-
-
-
-        if (!gl) {
-            alert("Your browser does not support WebGL2");
-        }
-
-            function resizeCanvas() {
-                var displayWidth  = Math.floor(canvas.clientWidth  * window.devicePixelRatio);
-                var displayHeight = Math.floor(canvas.clientHeight * window.devicePixelRatio);
-
-                if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
-                    canvas.width  = displayWidth / 2;
-                    canvas.height = displayHeight / 2;
-                    gl.viewport(0, 0, canvas.width, canvas.height);
+                var canvas = document.getElementById("canvas");
+                var gl = canvas.getContext("webgl2");
+                if (!gl) {
+                    alert("Your browser does not support WebGL2");
+                    return;
                 }
-            }
-
-        window.addEventListener('resize', resizeCanvas, false);
-        resizeCanvas();
+        
+                let lastWidth, lastHeight;
+        
+                function resizeCanvas() {
+                    let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                    let height = Math.max(
+                        document.body.scrollHeight, document.documentElement.scrollHeight,
+                        document.body.offsetHeight, document.documentElement.offsetHeight,
+                        document.body.clientHeight, document.documentElement.clientHeight
+                    );
+        
+                    if (width !== lastWidth || height !== lastHeight) {
+                        canvas.width = width * window.devicePixelRatio;
+                        canvas.height = height * window.devicePixelRatio;
+                        canvas.style.width = width + 'px';
+                        canvas.style.height = height + 'px';
+        
+                        gl.viewport(0, 0, canvas.width, canvas.height);
+        
+                        lastWidth = width;
+                        lastHeight = height;
+                    }
+                }
+        
+                // Debounce function to limit how often a function is executed
+                function debounce(func, timeout = 300) {
+                    let timer;
+                    return (...args) => {
+                        clearTimeout(timer);
+                        timer = setTimeout(() => { func.apply(this, args); }, timeout);
+                    };
+                }
+        
+                // Debounced resize event listener
+                window.addEventListener('resize', debounce(resizeCanvas));
+        
+                resizeCanvas(); // Initial setup
+        
+                // Periodic check can still be useful for catching other changes
 
         var vsSource = `#version 300 es
         in vec2 vertPosition;
