@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Django App{% endblock %}</title>
@@ -9,12 +10,16 @@
     <!-- Additional CSS -->
     {% block additional_css %}{% endblock %}
     <style>
+        body{
+            font-family: Arial, sans-serif; /* Adjust the font-family as needed */
+        }
+
         /* Main content styles */
         .main-content {
             position: relative;
             z-index: 2;
             overflow-y: auto; /* Enable vertical scrolling */
-            height: 85vh; /* Full viewport height */
+            height: calc(92vh - 50px); /* Full viewport height - height of footer */
             -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
             scrollbar-width: none; /* Hide scrollbar for Firefox */
         }
@@ -22,6 +27,33 @@
         /* Hide scrollbar for Chrome, Safari, Opera */
         .main-content::-webkit-scrollbar {
             display: none;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #f8f9fa;
+            padding: 10px 20px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-links li {
+            display: inline;
         }
     </style>
 </head>
@@ -38,25 +70,49 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link" href="{% url 'home' %}">
+                        <i class="fas fa-home fa-lg" style="color: #007bff;"></i> Home
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                    <a class="nav-link" href="{% url 'about' %}">
+                        <i class="fas fa-info-circle fa-lg" style="color: #28a745;"></i> About
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-envelope fa-lg" style="color: #dc3545;"></i> Contact
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'external_link' %}" target="_blank">Dash Saving Calculator</a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-tasks fa-lg" style="color: #ffc107;"></i> Projects
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'external_link' %}" target="_blank">
+                        <i class="fas fa-calculator fa-lg" style="color: #6c757d;"></i> Dash Saving Calculator
+                    </a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="container main-content">
         {% block content %}{% endblock %}
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <ul class="footer-links">
+                <li><a href="mailto:dev.elvir.github@gmail.com"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/elvir-hodzic-264a50274/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/ElvirDev0001" target="_blank"><i class="fab fa-github"></i></a></li>
+            </ul>
+        </div>
+    </footer>
 
     <!-- Bootstrap and jQuery Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
