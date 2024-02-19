@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Elvir's Projects{% endblock %}
+
+{% block additional_css %}
+<style>
+  /* Your custom styles here */
+  .card-header {
+    background-color: #116466;
+    color: #D9B08C;
+  }
+
+  .btn-link {
+    color: #4dfdf3;
+    text-decoration: none;
+  }
+
+  .btn-link:hover {
+    color: #FFFF86;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h4>Project Details</h4>
+    </div>
+    <div class="card-body">
+      <div class="btn-group" role="group" aria-label="Project Details Buttons">
+        <button type="button" class="btn btn-secondary content-btn" data-content="shortReview">Short Review</button>
+        <button type="button" class="btn btn-secondary content-btn" data-content="projectPictures">Project Pictures</button>
+        <button type="button" class="btn btn-secondary content-btn" data-content="video">Video</button>
+        <button type="button" class="btn btn-secondary content-btn" data-content="interesting">Interesting</button>
+      </div>
+      <div id="contentArea" class="collapse mt-3">
+        <!-- Content will be loaded here by JavaScript -->
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block additional_js %}
+    <script>
+    $(document).ready(function() {
+        $('.content-btn').click(function() {
+            var contentType = $(this).data('content');
+            var content = '';
+            var contentArea = $('#contentArea');
+            var isContentShown = contentArea.hasClass('show');
+    
+            switch (contentType) {
+                case 'shortReview':
+                    content = '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>';
+                    break;
+                case 'projectPictures':
+                    content = '<p>Gallery of project images...</p>';
+                    break;
+                case 'video':
+                    content = '<p>Embedded project video...</p>';
+                    break;
+                case 'interesting':
+                    content = '<p>Interesting facts about the project...</p>';
+                    break;
+            }
+    
+            // Check if the content area is already shown
+            if (isContentShown) {
+                contentArea.collapse('hide');
+            } else {
+                contentArea.html(content).collapse('show');
+            }
+        });
+    });
+    </script>
+{% endblock %}

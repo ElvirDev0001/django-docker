@@ -17,3 +17,6 @@ def shader_background_view(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def projects(request):
+    return render(request, 'projects.html')
