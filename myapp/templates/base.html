@@ -12,16 +12,17 @@
     <style>
         body{
             font-family: Arial, sans-serif; /* Adjust the font-family as needed */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the body takes up at least the height of the viewport */
+            margin: 0;
         }
 
         /* Main content styles */
         .main-content {
-            position: relative;
-            z-index: 2;
+            flex: 1; /* Allow the main content to take up remaining vertical space */
+            padding-bottom: 50px; /* Adjust this value according to your footer's height */
             overflow-y: auto; /* Enable vertical scrolling */
-            height: calc(87vh - 50px); /* Full viewport height - height of footer */
-            -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-            scrollbar-width: none; /* Hide scrollbar for Firefox */
         }
 
         /* Hide scrollbar for Chrome, Safari, Opera */
@@ -33,9 +34,8 @@
         footer {
             background-color: #f8f9fa;
             padding: 10px 20px;
-            position: absolute;
-            bottom: 0;
             width: 100%;
+            flex-shrink: 0; /* Ensure the footer doesn't shrink */
         }
 
         .footer-content {
