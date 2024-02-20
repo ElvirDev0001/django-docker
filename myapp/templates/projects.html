@@ -4,10 +4,39 @@
 
 {% block additional_css %}
 <style>
-  /* Your custom styles here */
+  body {
+    background-color: #2C3531;
+    color: #ffffff;
+  }
+  
+  .text-stroke {
+    color: #9EFF7A; /* Replace #yourTextColor with the actual color of your text */
+    text-shadow:
+      -1px -1px 0 #000000,
+       1px -1px 0 #000000,
+      -1px  1px 0 #000000,
+       1px  1px 0 #000000;
+  }
+
+
+  .jumbotron {
+    background-color: #ffffff00;
+    color: #9EFF7A;
+    margin-bottom: 1px; /* Reduce the bottom margin */
+    margin-top: 1px; /* Adjust the top margin if needed */
+    padding: 2.5rem 1.25rem; /* Smaller padding */
+  }
+
+  .card {
+    background-color: #ffffff00;
+    border-color: #4dfdf3;
+  }
+
   .card-header {
     background-color: #116466;
     color: #D9B08C;
+    text-align: center;
+    padding: 0.5rem 1.25rem; /* Smaller padding */
   }
 
   .btn-link {
@@ -18,61 +47,93 @@
   .btn-link:hover {
     color: #FFFF86;
   }
+
+  .card-body {
+      text-align: center; /* Center align text inside the card body */
+      display: flex; /* Use Flexbox */
+      flex-direction: column; /* Stack items vertically */
+      justify-content: center; /* Center items vertically */
+      align-items: center; /* Center items horizontally */
+      padding: 0.5rem 1rem; /* Smaller padding */
+    }
+
+    .card-body ul {
+      list-style-type: none; /* Remove default list styling */
+      padding: 0; /* Remove default padding */
+    }
+
+    .card-body ul li {
+      display: inline-block; /* Display list items inline */
+      margin: 0 10px; /* Add some horizontal spacing */
+    }
+
+    .card-body ul li i {
+      color: #2C3531; /* Icons inside the card body */
+      margin-right: 5px; /* Add some space between icon and text */
+    }
+
+  .container.custom-margin-top {
+    margin-top: 0px; /* Adjust this value as needed */
+  }
+
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="container mt-5">
-  <div class="card">
-    <div class="card-header">
-      <h4>Project Details</h4>
-    </div>
-    <div class="card-body">
-      <div class="btn-group" role="group" aria-label="Project Details Buttons">
-        <button type="button" class="btn btn-secondary content-btn" data-content="shortReview">Short Review</button>
-        <button type="button" class="btn btn-secondary content-btn" data-content="projectPictures">Project Pictures</button>
-        <button type="button" class="btn btn-secondary content-btn" data-content="video">Video</button>
-        <button type="button" class="btn btn-secondary content-btn" data-content="interesting">Interesting</button>
-      </div>
-      <div id="contentArea" class="collapse mt-3">
-        <!-- Content will be loaded here by JavaScript -->
+  <div class="jumbotron text-center">
+    <h1 class="display-4 text-stroke">Elvir's Projects</h1>
+  </div>
+
+  <div class="container custom-margin-top">
+    <div id="accordion" class="text-stroke">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-target="#collapseOne">Short Review</button>
+            <button class="btn btn-link" data-target="#collapseTwo">Project Pictures</button>
+            <!-- You can add more buttons here in the future -->
+          </h5>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            Content for Short Review
+          </div>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+            Content for Project Pictures
+          </div>
+        </div>
+        <!-- Additional collapses for future buttons go here -->
       </div>
     </div>
   </div>
 </div>
-{% endblock %}
 
-{% block additional_js %}
-    <script>
-    $(document).ready(function() {
-        $('.content-btn').click(function() {
-            var contentType = $(this).data('content');
-            var content = '';
-            var contentArea = $('#contentArea');
-            var isContentShown = contentArea.hasClass('show');
-    
-            switch (contentType) {
-                case 'shortReview':
-                    content = '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>';
-                    break;
-                case 'projectPictures':
-                    content = '<p>Gallery of project images...</p>';
-                    break;
-                case 'video':
-                    content = '<p>Embedded project video...</p>';
-                    break;
-                case 'interesting':
-                    content = '<p>Interesting facts about the project...</p>';
-                    break;
-            }
-    
-            // Check if the content area is already shown
-            if (isContentShown) {
-                contentArea.collapse('hide');
-            } else {
-                contentArea.html(content).collapse('show');
-            }
-        });
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cardHeader = document.querySelector(".card-header");
+      cardHeader.addEventListener("click", function(event) {
+        var target = event.target;
+        if (target.tagName === "BUTTON" && target.getAttribute("data-target")) {
+          var targetId = target.getAttribute("data-target");
+          var collapseElement = document.querySelector(targetId);
+
+          if (collapseElement) {
+            // Hide all other collapses
+            var allCollapses = document.querySelectorAll("#accordion .collapse");
+            allCollapses.forEach(function(coll) {
+              if (coll !== collapseElement) {
+                coll.classList.remove("show");
+              }
+            });
+
+            // Toggle the clicked collapse
+            collapseElement.classList.toggle("show");
+          }
+        }
+      });
     });
-    </script>
+</script>
 {% endblock %}
