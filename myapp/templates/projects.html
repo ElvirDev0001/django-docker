@@ -62,6 +62,12 @@
       padding: 0; /* Remove default padding */
     }
 
+  .card-body li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+      font-size: 14px;
+  }
+    
     .card-body ul li {
       display: inline-block; /* Display list items inline */
       margin: 0 10px; /* Add some horizontal spacing */
@@ -76,64 +82,103 @@
     margin-top: 0px; /* Adjust this value as needed */
   }
 
+  .card-body li strong {
+      font-weight: 600;
+  }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-  <div class="jumbotron text-center">
-    <h1 class="display-4 text-stroke">Elvir's Projects</h1>
-  </div>
-
-  <div class="container custom-margin-top">
-    <div id="accordion" class="text-stroke">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="mb-0">
-            <button class="btn btn-link" data-target="#collapseOne">Short Review</button>
-            <button class="btn btn-link" data-target="#collapseTwo">Project Pictures</button>
-            <!-- You can add more buttons here in the future -->
-          </h5>
+    <div class="container mt-5">
+        <div class="jumbotron text-center">
+            <h1 class="display-4 text-stroke">Elvir's Projects</h1>
         </div>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body">
-            Content for Short Review
-          </div>
+    
+        <div class="container custom-margin-top">
+            <div id="accordion" class="text-stroke">
+                <!-- First Card: CNC-Project -->
+                <div class="card">
+                    <div class="card-project-name" style="text-align: center; color: #D9B08C; padding: 0.5rem 1.25rem;">
+                        CNC-Project
+                    </div>
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">Short Review</button>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo">Project Pictures</button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            Content for Short Review
+                        </div>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            Videos
+                        </div>
+                    </div>
+                    <!-- Collapsible content for CNC-Project -->
+                </div>
+    
+                <!-- Second Card: Battery Knowhow -->
+                <div class="card">
+                    <div class="card-project-name" style="text-align: center; color: #D9B08C; padding: 0.5rem 1.25rem;">
+                        Battery Knowhow
+                    </div>
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree">Overview</button>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour">Technical Details</button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <ul style="list-style-type: none; padding: 0;">
+                                <li>Safe Handling Procedures.</li>
+                                <li>Precision Measurement Techniques</li>
+                                <li>Assembly of Battery Packs</li>
+                                <li>Load and Capacity Testing</li>
+                                <li>Battery Management Systems (BMS)</li>
+                                <li>Techniques for Active and Passive Balancing</li>
+                                <li>Lithium-ion and Lithium Iron Phosphate (LiFePO4) Technologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                        <div class="card-body">
+                            Content for Technical Details
+                        </div>
+                    </div>
+                    <!-- Collapsible content for Battery Knowhow -->
+                </div>
+    
+                <!-- Third Card: Test -->
+                <div class="card">
+                    <div class="card-project-name" style="text-align: center; color: #D9B08C; padding: 0.5rem 1.25rem;">
+                        Test
+                    </div>
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive">Experiment</button>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSix">Results</button>
+                        </h5>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                        <div class="card-body">
+                            Content for Experiment
+                        </div>
+                    </div>
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                        <div class="card-body">
+                            Content for Results
+                        </div>
+                    </div>
+                    <!-- Collapsible content for Test -->
+                </div>
+    
+                <!-- Additional cards can be added here following the same structure -->
+    
+            </div>
         </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-          <div class="card-body">
-            Content for Project Pictures
-          </div>
-        </div>
-        <!-- Additional collapses for future buttons go here -->
-      </div>
     </div>
-  </div>
-</div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var cardHeader = document.querySelector(".card-header");
-      cardHeader.addEventListener("click", function(event) {
-        var target = event.target;
-        if (target.tagName === "BUTTON" && target.getAttribute("data-target")) {
-          var targetId = target.getAttribute("data-target");
-          var collapseElement = document.querySelector(targetId);
-
-          if (collapseElement) {
-            // Hide all other collapses
-            var allCollapses = document.querySelectorAll("#accordion .collapse");
-            allCollapses.forEach(function(coll) {
-              if (coll !== collapseElement) {
-                coll.classList.remove("show");
-              }
-            });
-
-            // Toggle the clicked collapse
-            collapseElement.classList.toggle("show");
-          }
-        }
-      });
-    });
-</script>
 {% endblock %}
