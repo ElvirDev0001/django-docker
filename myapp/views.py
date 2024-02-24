@@ -31,6 +31,17 @@ def projects(request):
         {'url': 'https://storage.googleapis.com/bucketforimages666/battery/8.jpg', 'description': 'Battery Image 8'},
         {'url': 'https://storage.googleapis.com/bucketforimages666/battery/9.jpg', 'description': 'Battery Image 9'}
     ]
+    cnc_images = [
+        {'url': 'https://storage.googleapis.com/bucketforimages666/cnc/1.jpg', 'description': 'cnc Image 1'},
+        {'url': 'https://storage.googleapis.com/bucketforimages666/cnc/2.jpg', 'description': 'cnc Image 2'},
+        {'url': 'https://storage.googleapis.com/bucketforimages666/cnc/3.jpg', 'description': 'cnc Image 3'},
+        {'url': 'https://storage.googleapis.com/bucketforimages666/cnc/4.jpg', 'description': 'cnc Image 4'},
+        {'url': 'https://storage.googleapis.com/bucketforimages666/cnc/5.jpg', 'description': 'cnc Image 5'},
+        {'url': 'https://storage.googleapis.com/bucketforimages666/cnc/6.jpg', 'description': 'cnc Image 6'},
+        {'url': 'https://storage.googleapis.com/bucketforimages666/cnc/7.gif', 'description': 'cnc Image 7'},
+        {'url': 'https://storage.googleapis.com/bucketforimages666/cnc/8.gif', 'description': 'cnc Image 8'},
+    ]
 
-    return render(request, 'projects.html', {'battery_images': battery_images})
+    return render(request, 'projects.html', {'battery_images': battery_images, 'cnc_images': cnc_images})
+
 

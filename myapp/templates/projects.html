@@ -103,18 +103,36 @@
                     </div>
                     <div class="card-header">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">Short Review</button>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">Overview</button>
                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo">Project Pictures</button>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree">Videos</button>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour">Full Project PDF</button>
                         </h5>
                     </div>
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
-                            Content for Short Review
+                            <ul style="list-style-type: none; padding: 0;">
+                                <li>Proficiently utilized Onshape to design the CNC Plotter with precision, ensuring accurate construction.</li>
+                                <li>Skillfully executed the assembly process, including constructing the X-axis and installing bearings, ensuring proper functionality.</li>
+                                <li> Demonstrated expertise in stepper motor installation, wiring, and connection with the Arduino controller, ensuring effective control of the CNC Plotter.</li>
+                                <li>Effectively resolved challenges during construction, adapting materials like using an old floppy disk for the Z-axis, showcasing ingenuity and adaptability.</li>
+                                <li>Displayed a thorough understanding of the project from design to assembly, showcasing a holistic approach to project execution.</li>
+                            </ul>
                         </div>
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                         <div class="card-body">
+                            {% include "images.html" with images=cnc_images %}
+                        </div>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
                             Videos
+                        </div>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                        <div class="card-body">
+                            Full PDF
                         </div>
                     </div>
                     <!-- Collapsible content for CNC-Project -->
@@ -127,11 +145,11 @@
                     </div>
                     <div class="card-header">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree">Overview</button>
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour">Photo Gallery</button>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive">Overview</button>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSix">Photo Gallery</button>
                         </h5>
                     </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                         <div class="card-body">
                             <ul style="list-style-type: none; padding: 0;">
                                 <li>Safe Handling Procedures.</li>
@@ -144,7 +162,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
                         <div class="card-body">
                             {% include "images.html" with images=battery_images %}
                         </div>
@@ -159,16 +177,16 @@
                     </div>
                     <div class="card-header">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive">Experiment</button>
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSix">Results</button>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSeven">Experiment</button>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseEight">Results</button>
                         </h5>
                     </div>
-                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
                         <div class="card-body">
                             Content for Experiment
                         </div>
                     </div>
-                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
                         <div class="card-body">
                             Content for Results
                         </div>
