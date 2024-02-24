@@ -119,7 +119,7 @@
                     </div>
                     <!-- Collapsible content for CNC-Project -->
                 </div>
-    
+
                 <!-- Second Card: Battery Knowhow -->
                 <div class="card">
                     <div class="card-project-name" style="text-align: center; color: #D9B08C; padding: 0.5rem 1.25rem;">
@@ -146,12 +146,12 @@
                     </div>
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                         <div class="card-body">
-                            Content for Technical Details
+                            {% include "images.html" with images=battery_images %}
                         </div>
                     </div>
                     <!-- Collapsible content for Battery Knowhow -->
                 </div>
-    
+
                 <!-- Third Card: Test -->
                 <div class="card">
                     <div class="card-project-name" style="text-align: center; color: #D9B08C; padding: 0.5rem 1.25rem;">
@@ -181,4 +181,14 @@
             </div>
         </div>
     </div>
+    <script>
+        function openModal(imageUrl) {
+            document.getElementById('modalImage').src = imageUrl; // Set the source of the modal image to the clicked image
+            document.getElementById('imageModal').style.display = 'flex'; // Display the modal
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none'; // Hide the modal
+        }
+    </script>
 {% endblock %}
