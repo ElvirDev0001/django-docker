@@ -74,7 +74,7 @@
         }`;
 
         var fsSource = `#version 300 es
-        precision highp float;
+        precision mediump float;
         uniform vec2 iResolution;
         uniform float iTime;
         uniform float iTimeDelta;
@@ -92,7 +92,7 @@
             float accum = s / 4.0;
             float prev = 0.0;
             float tw = 0.0;
-            for (int i = 0; i < 26; ++i) {
+            for (int i = 0; i < 18; ++i) {
                 float mag = dot(p, p);
                 p = abs(p) / mag + vec3(-0.5, -0.4, -1.5) + 0.5 * mouseFactor * mousePos; // Add mouse position influence
                 float w = exp(-float(i) / 7.0);
@@ -112,7 +112,7 @@
             float accum = s / 4.0;
             float prev = 0.0;
             float tw = 0.0;
-            for (int i = 0; i < 18; ++i) {
+            for (int i = 0; i < 15; ++i) {
                 float mag = dot(p, p);
                 p = abs(p) / mag + vec3(-0.5, -0.4, -1.5) + 0.5 * mouseFactor * mousePos; // Add mouse position influence
                 float w = exp(-float(i) / 7.0);
