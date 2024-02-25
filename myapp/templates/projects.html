@@ -112,11 +112,11 @@
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             <ul style="list-style-type: none; padding: 0;">
-                                <li>Proficiently utilized Onshape to design the CNC Plotter with precision, ensuring accurate construction.</li>
-                                <li>Skillfully executed the assembly process, including constructing the X-axis and installing bearings, ensuring proper functionality.</li>
-                                <li> Demonstrated expertise in stepper motor installation, wiring, and connection with the Arduino controller, ensuring effective control of the CNC Plotter.</li>
-                                <li>Effectively resolved challenges during construction, adapting materials like using an old floppy disk for the Z-axis, showcasing ingenuity and adaptability.</li>
-                                <li>Displayed a thorough understanding of the project from design to assembly, showcasing a holistic approach to project execution.</li>
+                                <li>Gained proficiency in precision design with Onshape.</li>
+                                <li>Learned efficient assembly techniques.</li>
+                                <li>Acquired skills in stepper motor wiring and Arduino integration.</li>
+                                <li>Developed problem-solving abilities with creative material use.</li>
+                                <li>Enhanced understanding of end-to-end project execution.</li>
                             </ul>
                         </div>
                     </div>
@@ -132,6 +132,7 @@
                             
                             <!-- Video 2 -->
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/sjGdB497UH4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                         </div>
                     </div>
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
@@ -207,10 +208,21 @@
             </div>
         </div>
     </div>
+    
+    <!-- Modal container (hidden by default) -->
+    <div id="imageModal"
+         style="display:none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center;">
+        <span onclick="closeModal()"
+              style="position: absolute; top: 15px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer;">&times;</span>
+        <img id="modalImage" style="max-width: 80%; max-height: 80%;">
+    </div>
+    
     <script>
-        function openModal(imageUrl) {
-            document.getElementById('modalImage').src = imageUrl; // Set the source of the modal image to the clicked image
-            document.getElementById('imageModal').style.display = 'flex'; // Display the modal
+        function openModal(imageUrl, event) {
+            console.log('Modal opened for: ', imageUrl);
+            event.stopPropagation();
+            document.getElementById('modalImage').src = imageUrl;
+            document.getElementById('imageModal').style.display = 'flex';
         }
 
         function closeModal() {
