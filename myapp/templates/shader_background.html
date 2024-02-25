@@ -21,51 +21,34 @@
     <canvas id="canvas"></canvas>
     <script>
         function initializeWebGL() {
-                var canvas = document.getElementById("canvas");
-                var gl = canvas.getContext("webgl2");
-                if (!gl) {
-                    alert("Your browser does not support WebGL2");
-                    return;
+        var canvas = document.getElementById("canvas");
+        var gl = canvas.getContext("webgl2", {
+            alpha: false,
+            desynchronized: true, // for reduced latency, not supported in all browsers
+            preserveDrawingBuffer: true, // might affect performance
+            antialias: false // Disable antialiasing
+
+        });
+
+
+
+        if (!gl) {
+            alert("Your browser does not support WebGL2");
+        }
+
+            function resizeCanvas() {
+                var displayWidth  = Math.floor(canvas.clientWidth  * window.devicePixelRatio);
+                var displayHeight = Math.floor(canvas.clientHeight * window.devicePixelRatio);
+
+                if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
+                    canvas.width  = displayWidth / 2;
+                    canvas.height = displayHeight / 2;
+                    gl.viewport(0, 0, canvas.width, canvas.height);
                 }
+            }
 
-                let lastWidth, lastHeight;
-
-                function resizeCanvas() {
-                    let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-                    let height = Math.max(
-                        document.body.scrollHeight, document.documentElement.scrollHeight,
-                        document.body.offsetHeight, document.documentElement.offsetHeight,
-                        document.body.clientHeight, document.documentElement.clientHeight
-                    );
-
-                    if (width !== lastWidth || height !== lastHeight) {
-                        canvas.width = width * window.devicePixelRatio;
-                        canvas.height = height * window.devicePixelRatio;
-                        canvas.style.width = width + 'px';
-                        canvas.style.height = height + 'px';
-
-                        gl.viewport(0, 0, canvas.width, canvas.height);
-
-                        lastWidth = width;
-                        lastHeight = height;
-                    }
-                }
-
-                // Debounce function to limit how often a function is executed
-                function debounce(func, timeout = 300) {
-                    let timer;
-                    return (...args) => {
-                        clearTimeout(timer);
-                        timer = setTimeout(() => { func.apply(this, args); }, timeout);
-                    };
-                }
-
-                // Debounced resize event listener
-                window.addEventListener('resize', debounce(resizeCanvas));
-
-                resizeCanvas(); // Initial setup
-
-                // Periodic check can still be useful for catching other changes
+        window.addEventListener('resize', resizeCanvas, false);
+        resizeCanvas();
 
         var vsSource = `#version 300 es
         in vec2 vertPosition;
@@ -85,16 +68,12 @@
 
         float field(in vec3 p, float s) {
             float strength = 7. + 0.03 * log(0.000001 + fract(sin(iTime) * 4373.11));
-            float mouseX = iMouse.x / iResolution.x; // Normalize mouse x-coordinate
-            float mouseY = iMouse.y / iResolution.y; // Normalize mouse y-coordinate
-            vec3 mousePos = vec3(mouseX, mouseY, 0.0); // Combine mouse coordinates
-            float mouseFactor = 1.0 - smoothstep(0.0, 0.2, length(p.xy - mousePos.xy)); // Define mouse influence
             float accum = s / 4.0;
             float prev = 0.0;
             float tw = 0.0;
-            for (int i = 0; i < 18; ++i) {
+            for (int i = 0; i < 26; ++i) {
                 float mag = dot(p, p);
-                p = abs(p) / mag + vec3(-0.5, -0.4, -1.5) + 0.5 * mouseFactor * mousePos; // Add mouse position influence
+                p = abs(p) / mag + vec3(-0.5, -0.4, -1.5);
                 float w = exp(-float(i) / 7.0);
                 accum += w * exp(-strength * pow(abs(mag - prev), 2.2));
                 tw += w;
@@ -102,19 +81,15 @@
             }
             return max(0.0, 5.0 * accum / tw - 0.7);
         }
-        
+
         float field2(in vec3 p, float s) {
             float strength = 7. + 0.03 * log(0.000001 + fract(sin(iTime) * 4373.11));
-            float mouseX = iMouse.x / iResolution.x; // Normalize mouse x-coordinate
-            float mouseY = iMouse.y / iResolution.y; // Normalize mouse y-coordinate
-            vec3 mousePos = vec3(mouseX, mouseY, 0.0); // Combine mouse coordinates
-            float mouseFactor = 1.0 - smoothstep(0.0, 0.2, length(p.xy - mousePos.xy)); // Define mouse influence
             float accum = s / 4.0;
             float prev = 0.0;
             float tw = 0.0;
-            for (int i = 0; i < 15; ++i) {
+            for (int i = 0; i < 18; ++i) {
                 float mag = dot(p, p);
-                p = abs(p) / mag + vec3(-0.5, -0.4, -1.5) + 0.5 * mouseFactor * mousePos; // Add mouse position influence
+                p = abs(p) / mag + vec3(-0.5, -0.4, -1.5);
                 float w = exp(-float(i) / 7.0);
                 accum += w * exp(-strength * pow(abs(mag - prev), 2.2));
                 tw += w;
@@ -154,7 +129,7 @@
             vec3 rnd2 = nrand3(seed2);
             starcolor += vec4(pow(rnd2.y, 40.0));
 
-            fragColor = mix(0.7 - 0.3, 1.0, v) * vec4(1.5 * 0.5 * t * t * t, 1.0 * 0.6 * t * t, 0.4 * t, 1.0) + c2 + starcolor;
+            fragColor = mix(0.7 - 0.3, 1.0, v) * vec4(1.5 * 0.5 * t * t * t, 1.2 * 0.6 * t * t, 0.4 * t, 1.0) + c2 + starcolor;
         }`;
         
 
