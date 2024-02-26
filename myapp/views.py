@@ -29,7 +29,9 @@ def projects(request):
         {'url': 'https://storage.googleapis.com/bucketforimages666/battery/6.jpg', 'description': 'Battery Image 6'},
         {'url': 'https://storage.googleapis.com/bucketforimages666/battery/7.jpg', 'description': 'Battery Image 7'},
         {'url': 'https://storage.googleapis.com/bucketforimages666/battery/8.jpg', 'description': 'Battery Image 8'},
-        {'url': 'https://storage.googleapis.com/bucketforimages666/battery/9.jpg', 'description': 'Battery Image 9'}
+        {'url': 'https://storage.googleapis.com/bucketforimages666/battery/9.jpg', 'description': 'Battery Image 9'},
+        {'url': 'https://storage.googleapis.com/bucketforimages666/battery/10.jpg', 'description': 'Battery Image 10'},
+        {'url': 'https://storage.googleapis.com/bucketforimages666/battery/11.jpg', 'description': 'Battery Image 11'},
     ]
     cnc_images = [
         {'url': 'https://storage.googleapis.com/bucketforimages666/cnc/1.jpg', 'description': 'cnc Image 1'},
