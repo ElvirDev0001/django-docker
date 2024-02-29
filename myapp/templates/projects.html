@@ -182,22 +182,29 @@
                 <!-- Third Card: Test -->
                 <div class="card">
                     <div class="card-project-name" style="text-align: center; color: #D9B08C; padding: 0.5rem 1.25rem;">
-                        Test
+                        ResonanceDataFetcher
                     </div>
                     <div class="card-header">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSeven">Experiment</button>
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseEight">Results</button>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSeven">Overview</button>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseEight">Every3DaysExhibit Gallery</button>
                         </h5>
                     </div>
                     <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
                         <div class="card-body">
-                            Content for Experiment
+                            <li>Automates the retrieval of Schumann resonance data from a designated government website.</li>
+                            <li>Saves the fetched data into a Google Cloud Storage bucket for reliable and scalable storage.</li>
+                            <li>Utilizes a Django application to structure and present the data effectively to users.</li>
+                            <li>Displays updated resonance data every 3 days to ensure freshness and relevance.</li>
+                            <li>Incorporates error handling to manage data fetching and storage exceptions.</li>
+                            <li>Designed with scalability in mind to accommodate increasing data volumes.</li>
+                            <li>Emphasizes user experience by presenting data in an accessible and visually appealing format.</li>
+                            <li>PS. as I know there isn't a galary with dates, just the real time data at http://sosrff.tsu.ru/srimage1/shm.jpg.</li>
                         </div>
                     </div>
                     <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
                         <div class="card-body">
-                            Content for Results
+                            {% include "images.html" with images=schuman_images %}
                         </div>
                     </div>
                     <!-- Collapsible content for Test -->
